@@ -1,4 +1,5 @@
 require "data_active/version"
+require "nokogiri"
 
 module DataActive
   def self.included(base)
