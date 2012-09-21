@@ -44,7 +44,7 @@ module DataActive
           # Check through associations and apply sync appropriately
           self.reflect_on_all_associations.each do |association|
             foreign_key = foreign_key_from(association)
-            klass = association.klass
+            klass = association.klass unless association.try(:options) && association.options[:polymorphic]
 
             case
               when association.macro == :has_many, association.macro == :has_and_belongs_to_many
